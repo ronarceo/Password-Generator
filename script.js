@@ -9,9 +9,9 @@ var special = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-",
 
 //function to generate password
 function generatePassword() {
-//user selects number of characters, between 8-128
+//user selects number of characters between 8-128, parseInt added to catch if user doesn't input a number
 var passwordLength = parseInt(prompt("How many characters should the password have?\nMinimum of 8 and maximum of 128."));
-//user chooses an invalid amount
+//user chooses an invalid amount, page will continue to ask for valid amount
 while (passwordLength < 8 || passwordLength > 128) {
   alert("The number of characters can't be less than 8 or more than 128.")
   passwordLength = parseInt(prompt("How many characters should the password have?\nMinimum of 8 and maximum of 128."));
@@ -33,31 +33,30 @@ while (!hasLower && !hasUpper && !hasNumber && !hasSpecial) {
   return "Your Secure Password";
 }
 //empty array to store characters from selected criteria
-var passwordCharacters = []
+var passwordArray = []
       
 if (hasLower) {
-  passwordCharacters = passwordCharacters.concat(lower)
+  passwordArray = passwordArray.concat(lower)
 }
 
 if (hasUpper) {
-  passwordCharacters = passwordCharacters.concat(upper)
+  passwordArray = passwordArray.concat(upper)
 }
   
 if (hasNumber) {
-  passwordCharacters = passwordCharacters.concat(number)
+  passwordArray = passwordArray.concat(number)
 }
 
 if (hasSpecial) {
-  passwordCharacters = passwordCharacters.concat(special)
+  passwordArray = passwordArray.concat(special)
 }
-// For loop adds a character to the string until equal to specified length 
-  var randomPassword = ""
+// For loop adds a character to the string until equal to specified number of characters
+  var passwordString = ""
   
   for (var i = 0; i < passwordLength; i++) {
-    randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-    console.log(randomPassword)
+    passwordString = passwordString + passwordArray[Math.floor(Math.random() * passwordArray.length)];
   }
-  return randomPassword;
+  return passwordString;
 }
 
 // Write password to the #password input
