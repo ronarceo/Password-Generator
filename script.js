@@ -28,10 +28,11 @@ if (!passwordLength) {
   var hasSpecial = confirm("Should password have special characters?");
 }
 //user chooses no criteria
-while (!hasLower && !hasUpper && !hasNumber && !hasSpecial) {
+if (!hasLower && !hasUpper && !hasNumber && !hasSpecial) {
   alert("At least one type of characters need to be selected. Click generate password to try again.");
   return "Your Secure Password";
 }
+
 //empty array to store characters from selected criteria
 var passwordArray = []
       
@@ -50,6 +51,7 @@ if (hasNumber) {
 if (hasSpecial) {
   passwordArray = passwordArray.concat(special)
 }
+
 // For loop adds a character to the string until equal to specified number of characters
   var passwordString = ""
   
@@ -59,7 +61,7 @@ if (hasSpecial) {
   return passwordString;
 }
 
-// Write password to the #password input
+// writePassword function takes the result of generatePassword function then writes password to the #password input
 
 function writePassword() {
   var password = generatePassword();
