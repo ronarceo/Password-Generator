@@ -53,12 +53,12 @@ if (hasSpecial) {
 }
 
 // For loop adds a character to the string until equal to specified number of characters
-  var passwordString = ""
+var passwordString = ""
   
-  for (var i = 0; i < passwordLength; i++) {
-    passwordString = passwordString + passwordArray[Math.floor(Math.random() * passwordArray.length)];
-  }
-  return passwordString;
+for (let i = 0; i < passwordLength; i++) {
+  passwordString = passwordString + passwordArray[Math.floor(Math.random() * passwordArray.length)];
+}
+return passwordString;
 }
 
 // writePassword function takes the result of generatePassword function then writes password to the #password input
