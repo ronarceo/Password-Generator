@@ -11,7 +11,7 @@ var special = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-",
 function generatePassword() {
 //user selects number of characters between 8-128, parseInt added to catch if user doesn't input a number
 var passwordLength = parseInt(prompt("How many characters should the password have?\nMinimum of 8 and maximum of 128."));
-//user chooses an invalid amount, page will continue to ask for valid amount
+//user chooses an invalid amount, page will continue to ask for a valid amount
 while (passwordLength < 8 || passwordLength > 128) {
   alert("The number of characters can't be less than 8 or more than 128.")
   passwordLength = parseInt(prompt("How many characters should the password have?\nMinimum of 8 and maximum of 128."));
@@ -29,7 +29,7 @@ if (!passwordLength) {
 }
 //user chooses no criteria
 if (!hasLower && !hasUpper && !hasNumber && !hasSpecial) {
-  alert("At least one type of characters need to be selected. Click generate password to try again.");
+  alert("At least one type of character needs to be selected. Click generate password to try again.");
   return "Your Secure Password";
 }
 
